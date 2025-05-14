@@ -46,8 +46,6 @@ jobs:
             sudo yum install nodejs npm -y
             npm install
             sudo npm run build
-            cd build
             sudo rm -rf /var/www/html/*  # Clear the web server root directory
             sudo mv dist/* /var/www/html #moving build or dist to html
             sudo systemctl restart httpd
-
