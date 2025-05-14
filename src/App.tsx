@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  // if we will pass this function to any child component that will be re-rendered if there is any re-rendering in parent component because 
+  // this function is being recreated each time this component re-render.
+  const getItems = useCallback(()=>{
+    return ()=> [1, 2, 3];
+  }, []) 
 
   return (
     <>
